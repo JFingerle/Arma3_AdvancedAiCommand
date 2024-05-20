@@ -578,6 +578,25 @@ AIC_fnc_setGroupAutoCombatActionHandler = {
 ["GROUP","On",["Set Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
 ["GROUP","Off",["Set Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
 
+
+AIC_fnc_setGroupEnableAttackActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	_actionParams params ["_mode"];
+	if (_mode == "On") then {
+		{_x enableAttack true} foreach (units _group);
+	} else {
+		{_x enableAttack false} foreach (units _group);
+	};
+	hint ("enableAttack " + toLower _mode);
+};
+
+["GROUP","On",["Set Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Off",["Set Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
+
+
 AIC_fnc_deleteWaypointHandler = {
 	params ["_menuParams","_actionParams"];
 	_menuParams params ["_groupControlId","_waypointId"];
