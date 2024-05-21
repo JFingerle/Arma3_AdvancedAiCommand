@@ -301,7 +301,7 @@ AIC_fnc_terminateRemoteControl = {
 
 /*
 
-	Group Size
+	Join / Split Group
 
 */
 
@@ -319,7 +319,7 @@ AIC_fnc_joinGroupActionHandler = {
 		hint ("No Group Selected");
 	};
 };
-["GROUP","Join A Group",["Group Size"],AIC_fnc_joinGroupActionHandler,[]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Join A Group",["Join / Split Group"],AIC_fnc_joinGroupActionHandler,[]] call AIC_fnc_addCommandMenuAction;
 
 AIC_fnc_splitGroupHalfActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -338,7 +338,7 @@ AIC_fnc_splitGroupHalfActionHandler = {
 	} forEach (units _group);
 	hint ("Group Split in Half");
 };
-["GROUP","In Half",["Group Size","Split Group"],AIC_fnc_splitGroupHalfActionHandler,[],{
+["GROUP","In Half",["Join / Split Group","Split Group"],AIC_fnc_splitGroupHalfActionHandler,[],{
 	params ["_groupControlId"];
 	private ["_group"];
 	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
@@ -373,7 +373,7 @@ AIC_fnc_splitGroupUnitsActionHandler = {
 	hint ("Group Split into Individual Units");
 	
 };
-["GROUP","Into Individual Units",["Group Size","Split Group"],AIC_fnc_splitGroupUnitsActionHandler,[],{
+["GROUP","Into Individual Units",["Join / Split Group","Split Group"],AIC_fnc_splitGroupUnitsActionHandler,[],{
 	params ["_groupControlId"];
 	private ["_group"];
 	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
