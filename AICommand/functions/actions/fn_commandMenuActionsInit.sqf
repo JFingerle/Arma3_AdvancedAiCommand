@@ -25,7 +25,35 @@ AIC_fnc_addWaypointsActionHandler = {
 ["WAYPOINT","Add Waypoints",[],AIC_fnc_addWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
 
 
+/*
 
+	Combat mode
+
+*/
+
+
+AIC_fnc_setGroupCombatModeActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	_actionParams params ["_mode","_modeLabel"];
+	[_group,_mode] remoteExec ["setCombatMode", leader _group]; 
+	hint ("Combat mode set to " + toLower _modeLabel);
+};
+
+["GROUP","BLUE - Never Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["BLUE","Never Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","GREEN - Hold Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["GREEN","Hold Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","WHITE - Hold Fire, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["WHITE","Hold Fire, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","YELLOW - Fire At Will, Disengage (Default)",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["YELLOW","Fire At Will, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","RED - Fire At Will, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["RED","Fire At Will, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+
+	Group Behaviour
+
+*/
 
 AIC_fnc_setGroupBehaviourActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -125,30 +153,6 @@ AIC_fnc_setFlyInHeightActionHandler = {
 ["GROUP","500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","1000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[1000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-
-
-/*
-
-	Combat mode
-
-*/
-
-
-AIC_fnc_setGroupCombatModeActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	_actionParams params ["_mode","_modeLabel"];
-	[_group,_mode] remoteExec ["setCombatMode", leader _group]; 
-	hint ("Combat mode set to " + toLower _modeLabel);
-};
-
-["GROUP","BLUE - Never Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["BLUE","Never Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","GREEN - Hold Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["GREEN","Hold Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","WHITE - Hold Fire, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["WHITE","Hold Fire, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","YELLOW - Fire At Will, Disengage (Default)",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["YELLOW","Fire At Will, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","RED - Fire At Will, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["RED","Fire At Will, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
 
 
 /*
