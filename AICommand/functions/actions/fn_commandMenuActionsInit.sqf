@@ -24,26 +24,6 @@ AIC_fnc_addWaypointsActionHandler = {
 ["GROUP","Add Waypoints",[],AIC_fnc_addWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
 ["WAYPOINT","Add Waypoints",[],AIC_fnc_addWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
 
-AIC_fnc_setGroupColorActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	_actionParams params ["_color"];
-	[_group,_color] call AIC_fnc_setGroupColor;
-	AIC_fnc_setGroupControlColor(_groupControlId,_color);
-	[_groupControlId,"REFRESH_GROUP_ICON",[]] call AIC_fnc_groupControlEventHandler;
-	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
-	[_groupControlId,"REFRESH_ACTIONS",[]] call AIC_fnc_groupControlEventHandler;
-	hint ("Color set to " + toLower (_color select 0));
-};
-
-["GROUP","Red",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_RED]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Blue",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLUE]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Green",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_GREEN]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Black",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLACK]] call AIC_fnc_addCommandMenuAction;
-["GROUP","White",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_WHITE]] call AIC_fnc_addCommandMenuAction;
-
 
 AIC_fnc_setGroupBehaviourActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -741,3 +721,23 @@ AIC_fnc_setWaypointDurationActionHandler = {
 ["WAYPOINT","10 Min",["Set Duration"],AIC_fnc_setWaypointDurationActionHandler,[10]] call AIC_fnc_addCommandMenuAction;
 ["WAYPOINT","20 Min",["Set Duration"],AIC_fnc_setWaypointDurationActionHandler,[20]] call AIC_fnc_addCommandMenuAction;
 
+
+AIC_fnc_setGroupColorActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	_actionParams params ["_color"];
+	[_group,_color] call AIC_fnc_setGroupColor;
+	AIC_fnc_setGroupControlColor(_groupControlId,_color);
+	[_groupControlId,"REFRESH_GROUP_ICON",[]] call AIC_fnc_groupControlEventHandler;
+	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
+	[_groupControlId,"REFRESH_ACTIONS",[]] call AIC_fnc_groupControlEventHandler;
+	hint ("Color set to " + toLower (_color select 0));
+};
+
+["GROUP","Red",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_RED]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Blue",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLUE]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Green",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_GREEN]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Black",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLACK]] call AIC_fnc_addCommandMenuAction;
+["GROUP","White",["Set Group Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_WHITE]] call AIC_fnc_addCommandMenuAction;
