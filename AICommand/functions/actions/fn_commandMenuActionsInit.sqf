@@ -152,86 +152,6 @@ AIC_fnc_setGroupCombatModeActionHandler = {
 
 
 /*
-	Group Size
-*/
-
-AIC_fnc_joinGroupActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	private ["_selectedGroup"];
-	_selectedGroup = [_groupControlId] call AIC_fnc_selectGroupControlGroup;
-	if(!isNull _selectedGroup) then {
-		(units _group) joinSilent _selectedGroup;
-		hint ("Selected Group Joined");
-	} else {
-		hint ("No Group Selected");
-	};
-};
-["GROUP","Join A Group",["Group Size"],AIC_fnc_joinGroupActionHandler,[]] call AIC_fnc_addCommandMenuAction;
-
-AIC_fnc_splitGroupHalfActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	_group2 = createGroup (side _group);
-	_joinNewGroup = false;
-	{
-		if(_joinNewGroup) then {
-			[_x] joinSilent _group2;
-			_joinNewGroup = false;
-		} else {	
-			_joinNewGroup = true;
-		};
-	} forEach (units _group);
-	hint ("Group Split in Half");
-};
-["GROUP","In Half",["Group Size","Split Group"],AIC_fnc_splitGroupHalfActionHandler,[],{
-	params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	count units _group > 1;
-}] call AIC_fnc_addCommandMenuAction;
-
-AIC_fnc_splitGroupUnitsActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	
-	// Find all command controls to update with new split groups
-	_commandControlsToUpdate = [];
-	_commandControls = AIC_fnc_getCommandControls();
-	{
-		_commandControlId = _x;
-		_groups = AIC_fnc_getCommandControlGroups(_commandControlId);
-		if(_group in _groups) then {
-			_commandControlsToUpdate pushBack _commandControlId;
-		};
-	} forEach _commandControls;
-	
-	{
-		_group = createGroup (side _x);
-		[_x] joinSilent _group;
-		{
-			[_x,_group] call AIC_fnc_commandControlAddGroup;
-		} forEach _commandControlsToUpdate;
-	} forEach (units _group);
-	
-	hint ("Group Split into Individual Units");
-	
-};
-["GROUP","Into Individual Units",["Group Size","Split Group"],AIC_fnc_splitGroupUnitsActionHandler,[],{
-	params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	count units _group > 1;
-}] call AIC_fnc_addCommandMenuAction;
-
-
-/*
 	Clear all waypoints
 */
 
@@ -244,8 +164,14 @@ AIC_fnc_clearAllWaypointsActionHandler = {
 	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
 	hint ("All waypoints cleared");
 };
-
 ["GROUP","Confirm Cancel All",["Clear All Waypoints"],AIC_fnc_clearAllWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;		
+
+
+/*
+
+	Remote View & Control
+
+*/
 
 AIC_fnc_remoteViewActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -371,6 +297,95 @@ AIC_fnc_terminateRemoteControl = {
 	};
 	_canControl;
 }] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+
+	Group Size
+
+*/
+
+AIC_fnc_joinGroupActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	private ["_selectedGroup"];
+	_selectedGroup = [_groupControlId] call AIC_fnc_selectGroupControlGroup;
+	if(!isNull _selectedGroup) then {
+		(units _group) joinSilent _selectedGroup;
+		hint ("Selected Group Joined");
+	} else {
+		hint ("No Group Selected");
+	};
+};
+["GROUP","Join A Group",["Group Size"],AIC_fnc_joinGroupActionHandler,[]] call AIC_fnc_addCommandMenuAction;
+
+AIC_fnc_splitGroupHalfActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	_group2 = createGroup (side _group);
+	_joinNewGroup = false;
+	{
+		if(_joinNewGroup) then {
+			[_x] joinSilent _group2;
+			_joinNewGroup = false;
+		} else {	
+			_joinNewGroup = true;
+		};
+	} forEach (units _group);
+	hint ("Group Split in Half");
+};
+["GROUP","In Half",["Group Size","Split Group"],AIC_fnc_splitGroupHalfActionHandler,[],{
+	params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	count units _group > 1;
+}] call AIC_fnc_addCommandMenuAction;
+
+AIC_fnc_splitGroupUnitsActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	
+	// Find all command controls to update with new split groups
+	_commandControlsToUpdate = [];
+	_commandControls = AIC_fnc_getCommandControls();
+	{
+		_commandControlId = _x;
+		_groups = AIC_fnc_getCommandControlGroups(_commandControlId);
+		if(_group in _groups) then {
+			_commandControlsToUpdate pushBack _commandControlId;
+		};
+	} forEach _commandControls;
+	
+	{
+		_group = createGroup (side _x);
+		[_x] joinSilent _group;
+		{
+			[_x,_group] call AIC_fnc_commandControlAddGroup;
+		} forEach _commandControlsToUpdate;
+	} forEach (units _group);
+	
+	hint ("Group Split into Individual Units");
+	
+};
+["GROUP","Into Individual Units",["Group Size","Split Group"],AIC_fnc_splitGroupUnitsActionHandler,[],{
+	params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	count units _group > 1;
+}] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+
+	Assign Vehicle
+
+*/
 
 AIC_fnc_assignVehicleActionHandler = {
 	params ["_menuParams","_actionParams"];
