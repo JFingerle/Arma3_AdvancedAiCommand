@@ -53,11 +53,7 @@ AIC_fnc_setGroupSpeedActionHandler = {
 	_actionParams params ["_speed","_label"];
 	[_group,_speed] remoteExec ["setSpeedMode", leader _group]; 
 	hint ("Speed set to " + _label);
-};	
-		
-["GROUP","Half Speed",["Set Group Speed"],AIC_fnc_setGroupSpeedActionHandler,["LIMITED", "Half Speed"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Full Speed (In Formation)",["Set Group Speed"],AIC_fnc_setGroupSpeedActionHandler,["NORMAL", "Full Speed (In Formation)"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Full (No Formation)",["Set Group Speed"],AIC_fnc_setGroupSpeedActionHandler,["FULL", "Full (No Formation)"]] call AIC_fnc_addCommandMenuAction;	
+};		
 
 AIC_fnc_setGroupFormationActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -69,15 +65,18 @@ AIC_fnc_setGroupFormationActionHandler = {
 	hint ("Formation set to " + toLower _mode);
 };
 
-["GROUP","Column",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["COLUMN"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Stag. Column",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["STAG COLUMN"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Wedge",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["WEDGE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Echelon Left",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["ECH LEFT"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Echelon Right",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["ECH RIGHT"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","V",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["VEE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Line",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["LINE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","File",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["FILE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Diamond",["Group Formation"],AIC_fnc_setGroupFormationActionHandler,["DIAMOND"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Column",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["COLUMN"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Stag. Column",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["STAG COLUMN"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Wedge",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["WEDGE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Echelon Left",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["ECH LEFT"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Echelon Right",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["ECH RIGHT"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","V",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["VEE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Line",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["LINE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","File",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["FILE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Diamond",["Formation & Speed"],AIC_fnc_setGroupFormationActionHandler,["DIAMOND"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Half Speed",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["LIMITED", "Half Speed"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Full Speed (In Formation)",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["NORMAL", "Full Speed (In Formation)"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Full (No Formation)",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["FULL", "Full (No Formation)"]] call AIC_fnc_addCommandMenuAction;
 
 AIC_fnc_commandMenuIsAir = {
 	params ["_menuParams","_actionParams"];
@@ -612,15 +611,15 @@ AIC_fnc_setWaypointFormationActionHandler = {
 	hint ("Formation set to " + toLower _mode);
 };
 
-["WAYPOINT","Column",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["COLUMN"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Stag. Column",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["STAG COLUMN"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Wedge",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["WEDGE"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Echelon Left",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["ECH LEFT"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Echelon Right",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["ECH RIGHT"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","V",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["VEE"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Line",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["LINE"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","File",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["FILE"]] call AIC_fnc_addCommandMenuAction;
-["WAYPOINT","Diamond",["Group Formation"],AIC_fnc_setWaypointFormationActionHandler,["DIAMOND"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Column",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["COLUMN"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Stag. Column",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["STAG COLUMN"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Wedge",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["WEDGE"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Echelon Left",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["ECH LEFT"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Echelon Right",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["ECH RIGHT"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","V",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["VEE"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Line",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["LINE"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","File",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["FILE"]] call AIC_fnc_addCommandMenuAction;
+["WAYPOINT","Diamond",["Formation & Speed"],AIC_fnc_setWaypointFormationActionHandler,["DIAMOND"]] call AIC_fnc_addCommandMenuAction;
 								
 AIC_fnc_setWaypointTypeActionHandler = {
 	params ["_menuParams","_actionParams"];
