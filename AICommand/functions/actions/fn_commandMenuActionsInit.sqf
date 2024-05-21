@@ -341,6 +341,34 @@ AIC_fnc_terminateRemoteControl = {
 
 /*
 
+	Color
+
+*/
+
+AIC_fnc_setGroupColorActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	_actionParams params ["_color"];
+	[_group,_color] call AIC_fnc_setGroupColor;
+	AIC_fnc_setGroupControlColor(_groupControlId,_color);
+	[_groupControlId,"REFRESH_GROUP_ICON",[]] call AIC_fnc_groupControlEventHandler;
+	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
+	[_groupControlId,"REFRESH_ACTIONS",[]] call AIC_fnc_groupControlEventHandler;
+	hint ("Color set to " + toLower (_color select 0));
+};
+
+["GROUP","Red",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_RED]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Blue",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLUE]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Green",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_GREEN]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Black",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_BLACK]] call AIC_fnc_addCommandMenuAction;
+["GROUP","White",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_WHITE]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Purple",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_PURPLE]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Cyan",["Color"],AIC_fnc_setGroupColorActionHandler,[AIC_COLOR_CYAN]] call AIC_fnc_addCommandMenuAction;
+
+/*
+
 	Join / Split Group
 
 */
@@ -506,7 +534,7 @@ AIC_fnc_unassignVehicleActionHandler = {
 		};
 	} forEach (units _group);
 	_canUnassign;
-}] call AIC_fnc_addCommandMenuAction;	
+}] call AIC_fnc_addCommandMenuAction;
 
 AIC_fnc_unloadOtherGroupsActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -540,7 +568,11 @@ AIC_fnc_unloadOtherGroupsActionHandler = {
 }] call AIC_fnc_addCommandMenuAction;	
 
 
+/*
 
+	Land
+
+*/
 
 AIC_fnc_landActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -579,6 +611,12 @@ AIC_fnc_landActionHandler = {
 	_hasAir;	
 }] call AIC_fnc_addCommandMenuAction;
 
+
+/*
+
+	Rappel
+
+*/
 
 AIC_fnc_rappelActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -625,6 +663,12 @@ AIC_fnc_rappelActionHandler = {
 	_hasAir && (_group getVariable ["AIC_Has_Group_Cargo",false]) && !isNil "AR_RAPPELLING_INIT";	
 }] call AIC_fnc_addCommandMenuAction;
 
+
+/*
+
+	Waypoint Actions
+
+*/
 
 AIC_fnc_deleteWaypointHandler = {
 	params ["_menuParams","_actionParams"];
