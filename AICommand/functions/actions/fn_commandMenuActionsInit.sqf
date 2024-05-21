@@ -16,7 +16,7 @@
 
 /*
 
-	Waypoints
+	Add Waypoints
 
 */
 
@@ -30,6 +30,22 @@ AIC_fnc_addWaypointsActionHandler = {
 
 ["GROUP","Add Waypoints",[],AIC_fnc_addWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
 ["WAYPOINT","Add Waypoints",[],AIC_fnc_addWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+	Clear all waypoints
+*/
+
+AIC_fnc_clearAllWaypointsActionHandler = {
+	params ["_menuParams","_actionParams"];
+	_menuParams params ["_groupControlId"];
+	private ["_group"];
+	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
+	[_group] call AIC_fnc_disableAllWaypoints;	
+	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
+	hint ("All waypoints cleared");
+};
+["GROUP","Confirm Cancel All",["Clear All Waypoints"],AIC_fnc_clearAllWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;
 
 
 /*
@@ -188,23 +204,7 @@ AIC_fnc_setFlyInHeightActionHandler = {
 ["GROUP","250 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[250],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","1000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[1000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-
-
-/*
-	Clear all waypoints
-*/
-
-AIC_fnc_clearAllWaypointsActionHandler = {
-	params ["_menuParams","_actionParams"];
-	_menuParams params ["_groupControlId"];
-	private ["_group"];
-	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
-	[_group] call AIC_fnc_disableAllWaypoints;	
-	[_groupControlId,"REFRESH_WAYPOINTS",[]] call AIC_fnc_groupControlEventHandler;
-	hint ("All waypoints cleared");
-};
-["GROUP","Confirm Cancel All",["Clear All Waypoints"],AIC_fnc_clearAllWaypointsActionHandler] call AIC_fnc_addCommandMenuAction;		
+["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;		
 
 
 /*
