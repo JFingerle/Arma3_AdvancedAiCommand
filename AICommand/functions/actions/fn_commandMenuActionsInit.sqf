@@ -107,10 +107,12 @@ AIC_fnc_setGroupEnableAttackActionHandler = {
 	_actionParams params ["_mode"];
 	if (_mode == "On") then {
 		{_x enableAttack false} foreach (units _group);
+		hint ("enableAttack false");
 	} else {
 		{_x enableAttack true} foreach (units _group);
+		hint ("enableAttack true");
 	};
-	hint ("enableAttack " + toLower _mode);
+	
 };
 
 ["GROUP","Careless",["Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["CARELESS"]] call AIC_fnc_addCommandMenuAction;
