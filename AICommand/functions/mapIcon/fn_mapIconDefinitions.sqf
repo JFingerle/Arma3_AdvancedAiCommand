@@ -13,8 +13,8 @@ AIC_COLOR_GREEN = ["GREEN",_colorGreen];
 AIC_COLOR_BLUE = ["BLUE",_colorBlue];
 AIC_COLOR_BLACK = ["BLACK",_colorBlack];
 AIC_COLOR_WHITE = ["WHITE",_colorWhite];
-AIC_COLOR_PURPLE = ["BLACK",_colorBlack];
-AIC_COLOR_CYAN = ["WHITE",_colorWhite];
+AIC_COLOR_PURPLE = ["BLACK",_colorPurple];
+AIC_COLOR_CYAN = ["WHITE",_colorCyan];
 
 _colors = [AIC_COLOR_RED,AIC_COLOR_GREEN,AIC_COLOR_BLUE,AIC_COLOR_BLACK,AIC_COLOR_WHITE,AIC_COLOR_PURPLE,AIC_COLOR_CYAN];
 _groupIconTypes = ["inf","air","motor_inf","mech_inf","armor","plane","uav","art","mortar","maint","med","support","boat"];
