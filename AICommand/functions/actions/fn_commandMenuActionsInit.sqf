@@ -37,11 +37,11 @@ AIC_fnc_setGroupBehaviourActionHandler = {
 	hint ("Behaviour set to " + toLower _mode);
 };
 
-["GROUP","Careless",["Set Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["CARELESS"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Safe",["Set Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["SAFE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Aware",["Set Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["AWARE"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Combat",["Set Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["COMBAT"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Stealth",["Set Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["STEALTH"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Careless",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["CARELESS"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Safe",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["SAFE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Aware",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["AWARE"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Combat",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["COMBAT"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Stealth",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["STEALTH"]] call AIC_fnc_addCommandMenuAction;
 
 
 	
@@ -566,8 +566,8 @@ AIC_fnc_setGroupAutoCombatActionHandler = {
 	hint ("AutoCombat " + toLower _mode);
 };
 
-["GROUP","On",["Set Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Off",["Set Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","On",["Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Off",["Group Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
 
 
 AIC_fnc_setGroupEnableAttackActionHandler = {
@@ -584,8 +584,8 @@ AIC_fnc_setGroupEnableAttackActionHandler = {
 	hint ("enableAttack " + toLower _mode);
 };
 
-["GROUP","On",["Set Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Off",["Set Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","On",["Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Off",["Group Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
 
 
 AIC_fnc_deleteWaypointHandler = {
