@@ -90,9 +90,9 @@ AIC_fnc_setGroupEnableAttackActionHandler = {
 	_group = AIC_fnc_getGroupControlGroup(_groupControlId);
 	_actionParams params ["_mode"];
 	if (_mode == "On") then {
-		{_x enableAttack true} foreach (units _group);
-	} else {
 		{_x enableAttack false} foreach (units _group);
+	} else {
+		{_x enableAttack true} foreach (units _group);
 	};
 	hint ("enableAttack " + toLower _mode);
 };
@@ -102,10 +102,10 @@ AIC_fnc_setGroupEnableAttackActionHandler = {
 ["GROUP","Aware",["Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["AWARE"]] call AIC_fnc_addCommandMenuAction;
 ["GROUP","Combat",["Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["COMBAT"]] call AIC_fnc_addCommandMenuAction;
 ["GROUP","Stealth",["Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["STEALTH"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","On",["Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Off",["Behaviour","Toggle Auto Combat"],AIC_fnc_setGroupAutoCombatActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","On",["Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","Off",["Behaviour","Toggle Enable Attack"],AIC_fnc_setGroupEnableAttackActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","On",["Behaviour","Hold position when engaging (default=Off)"],AIC_fnc_setGroupEnableAttackActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Off",["Behaviour","Hold position when engaging"],AIC_fnc_setGroupEnableAttackActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","On",["Behaviour","Auto Combat Mode (default=On)"],AIC_fnc_setGroupAutoCombatActionHandler,["On"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","Off",["Behaviour","Auto Combat Mode"],AIC_fnc_setGroupAutoCombatActionHandler,["Off"]] call AIC_fnc_addCommandMenuAction;
 
 
 /*
