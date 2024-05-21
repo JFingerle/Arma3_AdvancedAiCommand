@@ -44,6 +44,11 @@ AIC_fnc_setGroupBehaviourActionHandler = {
 ["GROUP","Stealth",["Group Behaviour"],AIC_fnc_setGroupBehaviourActionHandler,["STEALTH"]] call AIC_fnc_addCommandMenuAction;
 
 
+/*
+
+	Formation & Speed
+
+*/
 	
 AIC_fnc_setGroupSpeedActionHandler = {
 	params ["_menuParams","_actionParams"];
@@ -77,6 +82,13 @@ AIC_fnc_setGroupFormationActionHandler = {
 ["GROUP","Half Speed",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["LIMITED", "Half Speed"]] call AIC_fnc_addCommandMenuAction;
 ["GROUP","Full Speed (In Formation)",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["NORMAL", "Full Speed (In Formation)"]] call AIC_fnc_addCommandMenuAction;
 ["GROUP","Full (No Formation)",["Formation & Speed"],AIC_fnc_setGroupSpeedActionHandler,["FULL", "Full (No Formation)"]] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+
+	Fly in Height
+
+*/
 
 AIC_fnc_commandMenuIsAir = {
 	params ["_menuParams","_actionParams"];
@@ -113,6 +125,14 @@ AIC_fnc_setFlyInHeightActionHandler = {
 ["GROUP","500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","1000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[1000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+
+
+/*
+
+	Combat mode
+
+*/
+
 
 AIC_fnc_setGroupCombatModeActionHandler = {
 	params ["_menuParams","_actionParams"];
