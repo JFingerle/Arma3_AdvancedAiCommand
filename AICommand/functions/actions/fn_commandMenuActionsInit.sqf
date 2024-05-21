@@ -144,11 +144,11 @@ AIC_fnc_setGroupCombatModeActionHandler = {
 	hint ("Combat mode set to " + toLower _modeLabel);
 };
 
-["GROUP","BLUE - Never Fire, Disengage",["Set Group Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["BLUE","Never Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","GREEN - Hold Fire, Disengage",["Set Group Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["GREEN","Hold Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","WHITE - Hold Fire, Engage At Will",["Set Group Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["WHITE","Hold Fire, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","YELLOW - Fire At Will, Disengage (Default)",["Set Group Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["YELLOW","Fire At Will, Disengage"]] call AIC_fnc_addCommandMenuAction;
-["GROUP","RED - Fire At Will, Engage At Will",["Set Group Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["RED","Fire At Will, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","BLUE - Never Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["BLUE","Never Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","GREEN - Hold Fire, Disengage",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["GREEN","Hold Fire, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","WHITE - Hold Fire, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["WHITE","Hold Fire, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","YELLOW - Fire At Will, Disengage (Default)",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["YELLOW","Fire At Will, Disengage"]] call AIC_fnc_addCommandMenuAction;
+["GROUP","RED - Fire At Will, Engage At Will",["Combat Mode"],AIC_fnc_setGroupCombatModeActionHandler,["RED","Fire At Will, Engage At Will"]] call AIC_fnc_addCommandMenuAction;
 
 
 /*
