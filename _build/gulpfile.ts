@@ -28,7 +28,7 @@ gulp.task("createPbo", () => {
 
 gulp.task("copy-additional-files", function() {
   return gulp
-    .src(['../mod.cpp', '../logo.paa', '../steamLogo.jpg', '../keys/**'])
+    .src(['../mod.cpp', '../logo.paa', '../steamLogo.jpg'])
     .pipe(gulp.dest(resultDir));
 });
 
