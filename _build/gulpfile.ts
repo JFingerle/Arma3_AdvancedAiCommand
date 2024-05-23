@@ -28,11 +28,17 @@ gulp.task("createPbo", () => {
 
 gulp.task("copy-additional-files", function() {
   return gulp
-    .src(['../mod.cpp', '../logo.paa', '../steamLogo.jpg', '../keys/'])
+    .src(['../mod.cpp', '../logo.paa', '../steamLogo.jpg', '../keys/**'])
     .pipe(gulp.dest(resultDir));
+});
+
+gulp.task("copy-key", function() {
+  return gulp
+    .src(['../keys/*'])
+    .pipe(gulp.dest(resultDir + "/keys/"));
 });
 
 gulp.task(
   "default",
-  gulp.series("clean", "createPbo", "copy-additional-files")
+  gulp.series("clean", "createPbo", "copy-additional-files", "copy-key")
 );
