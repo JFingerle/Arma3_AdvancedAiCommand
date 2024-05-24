@@ -198,13 +198,17 @@ AIC_fnc_setFlyInHeightActionHandler = {
 };
 
 ["GROUP","10 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[10],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-["GROUP","20 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[20],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-["GROUP","40 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[40],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+["GROUP","25 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[25],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+["GROUP","50 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[50],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","100 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[100],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","250 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[250],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+["GROUP","750 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[750],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 ["GROUP","1000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[1000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
-["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;		
+["GROUP","1500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[1500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+["GROUP","2000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;	
+["GROUP","2500 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[2500],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
+["GROUP","3000 meters",["Set Fly in Height"],AIC_fnc_setFlyInHeightActionHandler,[3000],AIC_fnc_commandMenuIsAir] call AIC_fnc_addCommandMenuAction;
 
 
 /*
