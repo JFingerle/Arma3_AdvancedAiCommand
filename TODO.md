@@ -1,0 +1,1 @@
+- Menu does not work any more after remote controlling an AI
